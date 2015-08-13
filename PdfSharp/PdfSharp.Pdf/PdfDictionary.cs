@@ -520,6 +520,14 @@ namespace PdfSharp.Pdf
       }
 
       /// <summary>
+      /// Sets the entry to a direct string value.
+      /// </summary>
+      public void SetString(string key, string value, PdfStringEncoding encoding)
+      {
+          this[key] = new PdfString(value, encoding);
+      }
+
+      /// <summary>
       /// Converts the specified value to a name.
       /// If the value not exists, the function returns the empty string.
       /// </summary>

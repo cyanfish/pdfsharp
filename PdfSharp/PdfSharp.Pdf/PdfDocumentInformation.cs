@@ -62,7 +62,7 @@ namespace PdfSharp.Pdf
     public string Title
     {
       get { return Elements.GetString(Keys.Title); }
-      set { Elements.SetString(Keys.Title, value); }
+      set { Elements.SetString(Keys.Title, ReverseByteOrder(value), PdfStringEncoding.Unicode); }
     }
 
     /// <summary>
@@ -71,7 +71,7 @@ namespace PdfSharp.Pdf
     public string Author
     {
       get { return Elements.GetString(Keys.Author); }
-      set { Elements.SetString(Keys.Author, value); }
+      set { Elements.SetString(Keys.Author, ReverseByteOrder(value), PdfStringEncoding.Unicode); }
     }
 
     /// <summary>
@@ -80,7 +80,7 @@ namespace PdfSharp.Pdf
     public string Subject
     {
       get { return Elements.GetString(Keys.Subject); }
-      set { Elements.SetString(Keys.Subject, value); }
+      set { Elements.SetString(Keys.Subject, ReverseByteOrder(value), PdfStringEncoding.Unicode); }
     }
 
     /// <summary>
@@ -89,7 +89,7 @@ namespace PdfSharp.Pdf
     public string Keywords
     {
       get { return Elements.GetString(Keys.Keywords); }
-      set { Elements.SetString(Keys.Keywords, value); }
+      set { Elements.SetString(Keys.Keywords, ReverseByteOrder(value), PdfStringEncoding.Unicode); }
     }
 
     /// <summary>
@@ -98,7 +98,17 @@ namespace PdfSharp.Pdf
     public string Creator
     {
       get { return Elements.GetString(Keys.Creator); }
-      set { Elements.SetString(Keys.Creator, value); }
+      set { Elements.SetString(Keys.Creator, ReverseByteOrder(value), PdfStringEncoding.Unicode); }
+    }
+
+    private string ReverseByteOrder(string value)
+    {
+        if (value == null)
+        {
+            return null;
+        }
+        byte[] bytes = Encoding.Unicode.GetBytes(value);
+        return Encoding.BigEndianUnicode.GetString(bytes);
     }
 
     /// <summary>
