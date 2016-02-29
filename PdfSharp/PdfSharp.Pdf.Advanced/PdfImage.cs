@@ -692,29 +692,29 @@ namespace PdfSharp.Pdf.Advanced
           //int ccittSize2D = DoFaxEncoding2D((uint)bytesFileOffset, ref temp2D, imageBits, (uint)width, (uint)height, dpiY, out kTmp);
           //k = (int) kTmp;
 
-          byte[] tempG4 = new byte[imageData.Length];
-          int ccittSizeG4 = DoFaxEncodingGroup4(ref tempG4, imageBits, (uint)bytesFileOffset, (uint)width, (uint)height);
+          //byte[] tempG4 = new byte[imageData.Length];
+          //int ccittSizeG4 = DoFaxEncodingGroup4(ref tempG4, imageBits, (uint)bytesFileOffset, (uint)width, (uint)height);
 
-          isFaxEncoding = /*ccittSize > 0 ||*/ ccittSizeG4 > 0;
-          if (isFaxEncoding)
-          {
-            //if (ccittSize == 0)
-            //  ccittSize = 0x7fffffff;
-            if (ccittSizeG4 == 0)
-              ccittSizeG4 = 0x7fffffff;
-            //if (ccittSize <= ccittSizeG4)
-            //{
-            //  Array.Resize(ref temp, ccittSize);
-            //  imageDataFax = temp;
-            //  k = 0;
-            //}
-            //else
-            {
-              Array.Resize(ref tempG4, ccittSizeG4);
-              imageDataFax = tempG4;
-              k = -1;
-            }
-          }
+          //isFaxEncoding = false; // /*ccittSize > 0 ||*/ ccittSizeG4 > 0;
+          //if (isFaxEncoding)
+          //{
+          //  //if (ccittSize == 0)
+          //  //  ccittSize = 0x7fffffff;
+          //  if (ccittSizeG4 == 0)
+          //    ccittSizeG4 = 0x7fffffff;
+          //  //if (ccittSize <= ccittSizeG4)
+          //  //{
+          //  //  Array.Resize(ref temp, ccittSize);
+          //  //  imageDataFax = temp;
+          //  //  k = 0;
+          //  //}
+          //  //else
+          //  {
+          //    Array.Resize(ref tempG4, ccittSizeG4);
+          //    imageDataFax = tempG4;
+          //    k = -1;
+          //  }
+          //}
         }
 
         //if (!isFaxEncoding)
