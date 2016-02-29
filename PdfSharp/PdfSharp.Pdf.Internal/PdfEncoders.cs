@@ -114,14 +114,14 @@ namespace PdfSharp.Pdf.Internal
     static Encoding docEncoding;
 
     /// <summary>
-    /// Gets the UNICODE little-endian encoding.
+    /// Gets the UNICODE big-endian encoding.
     /// </summary>
     public static Encoding UnicodeEncoding
     {
       get
       {
         if (PdfEncoders.unicodeEncoding == null)
-          PdfEncoders.unicodeEncoding = Encoding.Unicode;
+          PdfEncoders.unicodeEncoding = Encoding.BigEndianUnicode;
         return PdfEncoders.unicodeEncoding;
       }
     }
