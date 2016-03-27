@@ -80,5 +80,15 @@ namespace PdfSharp.Pdf
       set { this.noCompression = value; }
     }
     bool noCompression;
+
+    /// <summary>
+    /// Gets or sets a value indicating whether PDF/A compatibility should be used.
+    /// </summary>
+    public bool PdfACompat
+    {
+      get { return this.pdfACompat; }
+      set { this.pdfACompat = value; }
+    }
+    bool pdfACompat;
   }
 }

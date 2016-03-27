@@ -571,7 +571,7 @@ namespace PdfSharp.Pdf
 #if true
       // Add transparency group to prevent rendering problems of Adobe viewer
       this.transparencyUsed = true; // TODO: check XObjects
-      if (this.transparencyUsed && !Elements.ContainsKey(Keys.Group))
+      if (this.transparencyUsed && !Elements.ContainsKey(Keys.Group) && (writer.Options & PdfWriterOptions.PdfACompat) != PdfWriterOptions.PdfACompat)
       {
         PdfDictionary group = new PdfDictionary();
         this.elements["/Group"] = group;

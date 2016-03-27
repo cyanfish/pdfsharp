@@ -52,5 +52,10 @@ namespace PdfSharp.Pdf.IO
     /// Omit inflate filter. For debugging purposes only.
     /// </summary>
     OmitInflation = 0x000002,
+
+    /// <summary>
+    /// PDF/A compatibility.
+    /// </summary>
+    PdfACompat = 0x000002,
   }
 }
