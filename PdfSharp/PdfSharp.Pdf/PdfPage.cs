@@ -79,7 +79,14 @@ namespace PdfSharp.Pdf
 
     void Initialize()
     {
-      Size = RegionInfo.CurrentRegion.IsMetric ? PageSize.A4 : PageSize.Letter;
+      try
+      {
+        Size = RegionInfo.CurrentRegion.IsMetric ? PageSize.A4 : PageSize.Letter;
+      }
+      catch (NotImplementedException)
+      {
+        Size = PageSize.A4;
+      }
 
 #pragma warning disable 168
       // Force creation of MediaBox object by invoking property
